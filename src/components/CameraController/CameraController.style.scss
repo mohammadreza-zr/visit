@@ -1,0 +1,95 @@
+@import "../../index";
+
+$hover-color: #334155;
+$background-color: #f3f4f6;
+$white: white;
+
+@mixin square {
+  flex: 1;
+  height: 100%;
+  background-color: $background-color;
+  @include center();
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $hover-color;
+
+    .arrow-path {
+      fill: white;
+    }
+  }
+}
+
+@mixin square-container {
+  @include center();
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.camera-controller {
+  position: relative;
+  @include center();
+  justify-content: center;
+  flex-direction: column;
+  height: 12rem;
+  width: 12rem;
+  min-width: 12rem;
+  min-height: 12rem;
+  transform: rotate(45deg);
+  overflow: hidden;
+  border-radius: 50%;
+  border: 4px solid $white;
+
+  .camera-controller__center {
+    width: 50%;
+    height: 50%;
+    background-color: $background-color;
+    border: 4px solid $white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    border-radius: 50%;
+    @include center();
+    justify-content: center;
+    flex-direction: column;
+    font-size: 12px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $hover-color;
+      color: $white;
+
+      .capture_path {
+        fill: $white;
+      }
+    }
+  }
+
+  .camera-controller__left {
+    @include square-container();
+
+    .camera-controller__left__top {
+      @include square();
+    }
+    .camera-controller__left__bottom {
+      @include square();
+    }
+  }
+  .camera-controller__right {
+    @include square-container();
+
+    .camera-controller__right__top {
+      @include square();
+    }
+    .camera-controller__right__bottom {
+      @include square();
+    }
+  }
+}
+.capture {
+  width: 1.5rem;
+  height: 1.5rem;
+}

@@ -1,0 +1,6 @@
+@import "../../index";
+
+.root-footer {
+  @include center-100();
+  justify-content: center;
+}

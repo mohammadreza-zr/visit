@@ -1,0 +1,72 @@
+@import "../../../index";
+
+.visit-footer {
+  background-color: white;
+  padding: 0.5rem;
+
+  .visit-footer__container {
+    @include container();
+    @include center-100();
+    justify-content: space-between;
+
+    .volume {
+      @include center();
+      background-color: white;
+      border: 1px solid #4b556380;
+      border-radius: 8px;
+      padding: 0.5rem;
+
+      .volume__icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+      .volume__input {
+        width: 6rem;
+        -webkit-appearance: none;
+        margin-left: 0.5rem;
+
+        &::-webkit-slider-runnable-track {
+          width: 300px;
+          height: 5px;
+          background: white;
+          border: 1px solid #4b556380;
+          border-radius: 32px;
+        }
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          border: none;
+          height: 24px;
+          width: 4px;
+          border-radius: 14px;
+          background: #334155;
+          margin-top: -11px;
+        }
+      }
+    }
+
+    .visit-footer__settings {
+      @include center();
+
+      .visit-footer__settings__item {
+        @include center();
+        margin: 0 0.5rem;
+        padding: 0.5rem;
+        border-radius: 8px;
+        background-color: #f3f4f6;
+        border: 1px solid #4b556380;
+        cursor: pointer;
+
+        & img {
+          width: 1.5rem;
+          height: 1.5rem;
+
+          &:last-child {
+            width: 0.8rem;
+            height: 0.8rem;
+            margin-left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}

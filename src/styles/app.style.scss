@@ -1,0 +1,10 @@
+@import "./index";
+
+.app {
+  min-height: calc(100vh - 5rem);
+  @include container();
+
+  @include x-large-screen {
+    padding: 0 0.5rem;
+  }
+}

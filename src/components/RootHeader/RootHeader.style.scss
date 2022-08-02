@@ -1,0 +1,23 @@
+@import "../../index";
+
+.root-header {
+  @include center();
+  justify-content: center;
+  padding: 1rem;
+
+  .root-header__link {
+    margin: 0 0.5rem;
+
+    &:hover {
+      color: red;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
