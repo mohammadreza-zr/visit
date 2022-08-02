@@ -1,1 +1,1 @@
-### `please use yarn`
+please use yarn package manager
