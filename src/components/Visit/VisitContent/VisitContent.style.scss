@@ -21,14 +21,14 @@
   }
 
   .visit-content__video-container {
-    height: 27rem;
-    width: 73%;
+    height: 26.3rem;
     overflow: hidden;
 
     .visit-content__video-container__video {
       border-radius: 13px;
       border: 5px solid white;
       width: 100%;
+      height: 100%;
     }
   }
   .visit-content__video-container__video--full {
@@ -45,7 +45,7 @@
     border: 2px solid #ffffff;
     border-radius: 8px;
     width: 23%;
-    height: 25rem;
+    height: 26.3rem;
     min-width: 12rem;
     margin-left: auto;
     @include center();

@@ -1,10 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import "./VisitContent.style.scss";
 
 import CameraController from "../../CameraController/CameraController";
 import { Icons, Images, Videos } from "../../../assets";
 import Modal from "../../Modal/Modal";
+import { useSocket } from "../../../hooks";
 
 const VisitContent: React.FC = () => {
   const [zoomStep, setZoomStep] = useState<number>(1);
@@ -15,7 +16,39 @@ const VisitContent: React.FC = () => {
 
   const videoRef = useRef<any>(null);
 
+  const socket = useSocket("https://robos.upkeytech.com", {
+    reconnectionAttempts: 5,
+    reconnectionDelay: 5000,
+    autoConnect: true,
+    transports: ["websocket"],
+  });
+
+  useEffect(() => {
+    socket.on("client.room.id", (data: any[]) => {
+      console.log("client.room.id", data);
+    });
+
+    socket.on("server.room.controll", (data: any[]) => {
+      console.log("server.room.controll", data);
+    });
+    socket.on("room.controll", (data: any[]) => {
+      console.log("room.controll", data);
+    });
+
+    return () => {};
+  }, [socket]);
+
+  const test = () => {
+    socket.emit("client.room.id", "JlxfosUi5fTcDwmMAACZ");
+    socket.emit("client.room.id", {
+      room: socket.id,
+      action: "up",
+    });
+  };
+
   const handleFullScreenVideo = () => {
+    test();
+
     if (!fullScreen) {
       setFullScreen(true);
     } else {
